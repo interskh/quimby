@@ -105,7 +105,7 @@ module Foursquare
         count = checkins.count
         offset = offset + count
       end
-      array
+      array.first num
     end
     
     def all_checkins
