@@ -94,6 +94,19 @@ module Foursquare
         Foursquare::Checkin.new(@foursquare, item)
       end
     end
+
+    def some_checkins(num)
+      count = 250
+      offset = 0
+      array = []
+      while count == 250 && offset < num
+        checkins = checkins(:limit => count, :offset => offset)
+        array += checkins
+        count = checkins.count
+        offset = offset + count
+      end
+      array
+    end
     
     def all_checkins
       count = 250
